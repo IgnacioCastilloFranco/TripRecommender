@@ -1,0 +1,32 @@
+services:
+  # Development environment
+  trip-recommender-dev:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: development
+    container_name: trip-recommender-dev
+    ports:
+      - "5173:5173"
+    volumes:
+      - .:/app
+      - /app/node_modules
+    environment:
+      - VITE_GEMINI_API_KEY=${VITE_GEMINI_API_KEY}
+    profiles:
+      - dev
+
+  # Production environment
+  trip-recommender:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: production
+      args:
+        VITE_GEMINI_API_KEY: ${VITE_GEMINI_API_KEY}
+    container_name: trip-recommender
+    ports:
+      - "80:80"
+    restart: unless-stopped
+    profiles:
+      - prod
