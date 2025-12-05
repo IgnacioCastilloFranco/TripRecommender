@@ -4,7 +4,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-      target: development
+      target: development # Development stage in the Dockerfile
     container_name: trip-recommender-dev
     ports:
       - "5173:5173"
@@ -21,7 +21,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-      target: production
+      target: production # Production stage in the Dockerfile
       args:
         VITE_GEMINI_API_KEY: ${VITE_GEMINI_API_KEY}
     container_name: trip-recommender

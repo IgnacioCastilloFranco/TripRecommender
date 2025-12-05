@@ -13,6 +13,6 @@
   </head>
   <body>
     <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
-</html>
+    <script type="module" src="/src/main.tsx"></script>   <!--link between this HTML page and the React application entry point file -->
+  </body>                                                 <!--When the browser requests main.tsx, Vite's dev server transforms the TypeScript and JSX into plain JavaScript on-the-fly before sending it to the browser-->
+</html>                                                   <!--In production, when you run npm run build, Vite compiles all your TypeScript and JSX into optimized JavaScript bundles. The final index.html in your dist folder will reference these compiled .js files instead of the original .tsx source.-->
