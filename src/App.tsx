@@ -1,3 +1,5 @@
+// This is the main container which orchestrates the whole React application.
+
 import React, { useState } from 'react';
 import { 
   Header, 
