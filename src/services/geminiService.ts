@@ -5,7 +5,7 @@ const genAI = new GoogleGenerativeAI(import.meta.env.VITE_GEMINI_API_KEY || '');
 
 export const generateTravelDestinations = async (userInput: string): Promise<Destination[]> => {
   try {
-    const model = genAI.getGenerativeModel({ model: 'gemini-1.5-flash' });
+    const model = genAI.getGenerativeModel({ model: 'gemini-2.5-flash' });
 
     const prompt = `You are a travel expert assistant. Based on the following user travel preferences or desired destination, suggest 3-5 travel destinations that match their criteria.
 

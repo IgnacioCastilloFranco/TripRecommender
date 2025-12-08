@@ -54,7 +54,7 @@ An AI-powered travel destination finder that helps users discover their perfect 
    ```bash
    docker-compose --profile prod up --build
    ```
-   Access the app at: http://localhost:80
+   Access the app at: http://localhost:8080
 
 ## 🛠️ Development Without Docker
 

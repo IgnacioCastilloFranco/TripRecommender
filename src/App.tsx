@@ -40,7 +40,6 @@ const App: React.FC = () => {
   };
 
   const hasResults = destinations.length > 0;
-  const showMap = hasResults || isLoading;
 
   return (
     <div className="min-h-screen flex flex-col bg-gray-50">
