@@ -36,7 +36,7 @@ export const useDestinationSearch = () => {
   const selectDestination = useCallback((destination: Destination) => {//handles selecting a specific destination from the search results. When a destination is selected, it updates the destinations array to mark the selected destination.
     setState((prev: SearchState) => ({
       ...prev,                                                          //spreads the previous state to retain other properties like isLoading and error.
-      destinations: prev.destinations.map((d: Destination) => ({ ...                   //creates a new array of destinations by mapping over the previous destinations array. For each destination, it creates a new object that copies all properties of the original destination.    
+      destinations: prev.destinations.map((d: Destination) => ({        //creates a new array of destinations by mapping over the previous destinations array. For each destination, it creates a new object that copies all properties of the original destination.    
         ...d,                                                           //spreads the properties of the current destination object. 
         selected: d.id === destination.id,                              //adds or updates the selected property. It sets selected to true if the current destination's id matches the id of the destination being selected; otherwise, it sets it to false.  
       })),
