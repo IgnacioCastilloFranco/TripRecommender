@@ -1,3 +1,7 @@
+/* main React component for the Trip Recommender application. It orchestrates the UI and logic
+ for searching travel destinations using AI, displaying results, handling loading and error states
+ and showing an interactive map. */
+
 import React, { useState } from 'react';
 import { 
   Header, 
@@ -10,14 +14,16 @@ import {
 import { useDestinationSearch } from './hooks/useDestinationSearch';
 import { Destination } from './types';
 
-const App: React.FC = () => {
+/*React automatically invokes this function whenever it needs to render or re-render the UI, for example, at start, after state changes or when props are updated. it is managed by React's rendering engine*/
+
+const App: React.FC = () => {/*  React.FC type annotation indicates that this is a function component in React. */
   const { 
     isLoading, 
     error, 
     destinations, 
     searchDestinations, 
-    clearResults 
-  } = useDestinationSearch();
+    clearResults
+  } = useDestinationSearch(); // Custom hook to manage destination search state and logic
 
   const [selectedDestination, setSelectedDestination] = useState<Destination | null>(null);
 
@@ -38,7 +44,6 @@ const App: React.FC = () => {
   };
 
   const hasResults = destinations.length > 0;
-  const showMap = hasResults || isLoading;
 
   return (
     <div className="min-h-screen flex flex-col bg-gray-50">
