@@ -23,13 +23,13 @@ const App: React.FC = () => {/*  React.FC type annotation indicates that this is
     destinations, 
     searchDestinations, 
     clearResults
-  } = useDestinationSearch(); // Custom hook to manage destination search state and logic
+  } = useDestinationSearch(); // Custom hook to manage destination search (data fetching) state and logic
 
-  const [selectedDestination, setSelectedDestination] = useState<Destination | null>(null);
+  const [selectedDestination, setSelectedDestination] = useState<Destination | null>(null); // React state variable using the useState hook to manage (UI interaction state) which destination the user has currently selected in the Trip Recommender application
 
-  const handleSearch = (query: string) => {
-    setSelectedDestination(null);
-    searchDestinations(query);
+  const handleSearch = (query: string) => {//event handler that is triggered when a user submits a search query in the Trip Recommender application.
+    setSelectedDestination(null);// resets the currently selected destination to null. This ensures that any previously selected destination is cleared before new search results arrive
+    searchDestinations(query);//calls the search function from the useDestinationSearch hook, passing the user's query. This triggers the async operation that sets the loading state, calls the AI service, and eventually populates the destinations array with new results
   };
 
   const handleClear = () => {
@@ -37,9 +37,9 @@ const App: React.FC = () => {/*  React.FC type annotation indicates that this is
     clearResults();
   };
 
-  const handleSelectDestination = (destination: Destination) => {
-    setSelectedDestination(prev => 
-      prev?.id === destination.id ? null : destination
+  const handleSelectDestination = (destination: Destination) => { //event handler that manages toggling destination selection in the Trip Recommender application—implementing a "click to select, click again to deselect" behavior. arg is the destination card the user clicked
+    setSelectedDestination((prev: Destination | null) => 
+      prev?.id === destination.id ? null : destination //If the previously selected destination's id matches the clicked destination's id, the user is clicking the same item again—so it deselects by returning null. Otherwise, it selects the new destination by returning it.
     );
   };
 
