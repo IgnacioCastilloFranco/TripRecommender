@@ -1,3 +1,7 @@
+/* 
+React component that provides the search interface for the Trip Recommender application
+*/
+
 import React, { useState, FormEvent, KeyboardEvent } from 'react';
 
 interface SearchInputProps {

@@ -54,13 +54,14 @@ const App: React.FC = () => {/*  React.FC type annotation indicates that this is
       </a>
 
       <Header onClear={handleClear} hasResults={hasResults} />  {/* renders the top navigation of the Trip Recommender application. In React, components are reusable pieces of UI that can accept inputs (props). hasResults={hasResults} passes a boolean value that indicates whether the application currently has search results to display. The Header component uses this to conditionally render UI elements— a "New Search" button when there are results to clear.*/}
-
+                                                                {/* This is a common React pattern called "lifting state up" or "callback props." The Header component has "New Search" button  that, when clicked, calls onClear(). This executes the handleClear function defined in App, allowing the child component to trigger state changes in its parent. This keeps the application logic centralized in App while letting Header remain a simpler, more reusable component.*/}
+                                                                {/* This pattern of passing data down (via hasResults) and actions up (via onClear) is fundamental to React's unidirectional data flow. The parent component owns the state and logic, while child components receive what they need through props and communicate back through callback functions..*/}
       <main 
         id="main-content" 
         className="flex-1 container mx-auto px-4 py-6 sm:py-8"
         role="main"
       >
-        {/* Search Section */}
+        {/* Search Section. Using section instead of a generic div improves accessibility and helps screen readers understand the page structure.*/}
         <section 
           className={`transition-all duration-500 ${
             hasResults ? 'mb-6' : 'flex flex-col items-center justify-center min-h-[40vh]'
@@ -160,7 +161,16 @@ const App: React.FC = () => {/*  React.FC type annotation indicates that this is
       <footer className="bg-white border-t border-gray-200 py-4 mt-auto">
         <div className="container mx-auto px-4 text-center text-sm text-gray-500">
           <p>
-            Powered by{' '}
+            Created by{' '}
+            <a 
+              href="https://github.com/hoodche" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-primary-600 hover:text-primary-700 focus:outline-none focus:underline"
+            >
+              Ignacio Castillo Franco
+            </a>
+            {' '}• Powered by{' '}
             <a 
               href="https://ai.google.dev/" 
               target="_blank" 

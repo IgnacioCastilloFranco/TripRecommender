@@ -183,10 +183,3 @@ docker-compose build --no-cache
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## 🙏 Acknowledgments
-
-- [Google Gemini AI](https://ai.google.dev/) for AI-powered recommendations
-- [Leaflet](https://leafletjs.com/) for the interactive map
-- [OpenStreetMap](https://www.openstreetmap.org/) for map data
-- [Tailwind CSS](https://tailwindcss.com/) for styling
-- [Vite](https://vitejs.dev/) for the build tool
