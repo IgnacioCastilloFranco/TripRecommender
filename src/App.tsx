@@ -45,6 +45,7 @@ const App: React.FC = () => {/*  React.FC type annotation indicates that this is
 
   const hasResults = destinations.length > 0;
 
+  //the main UI structure of the Trip Recommender application. It uses Tailwind CSS for styling and implements a responsive, accessible layout.
   return (
     <div className="min-h-screen flex flex-col bg-gray-50">
       {/* Skip link for accessibility */}
