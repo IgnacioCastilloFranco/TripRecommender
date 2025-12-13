@@ -38,7 +38,9 @@ const Header: React.FC<HeaderProps> = ({ onClear, hasResults }) => {
               </p>
             </div>
           </div>
-          
+          {/* Conditional New Search Button Rendering: In JavaScript, the && operator returns the second operand if the first is truthy, or the first operand if it's falsy. So when hasResults is true, React renders the button; when it's false, nothing is rendered. */}
+          {/* className="..." applies Tailwind CSS utility classes for styling */}
+          {/* While sighted users see "New Search," the aria-label gives screen reader users more context about what the button actually does, improving the experience for users with visual impairments. */}
           {hasResults && (
             <button
               onClick={onClear}

@@ -32,7 +32,7 @@ const App: React.FC = () => {/*  React.FC type annotation indicates that this is
     searchDestinations(query);//calls the search function from the useDestinationSearch hook, passing the user's query. This triggers the async operation that sets the loading state, calls the AI service, and eventually populates the destinations array with new results
   };
 
-  const handleClear = () => {
+  const handleClear = () => {//clears the current search results and resets the selected destination in the Trip Recommender application
     setSelectedDestination(null);
     clearResults();
   };
@@ -48,12 +48,12 @@ const App: React.FC = () => {/*  React.FC type annotation indicates that this is
   //the main UI structure of the Trip Recommender application. It uses Tailwind CSS for styling and implements a responsive, accessible layout.
   return (
     <div className="min-h-screen flex flex-col bg-gray-50">
-      {/* Skip link for accessibility */}
-      <a href="#main-content" className="skip-link">
+      {/* Skip link feature for accessibility. helps keyboard and screen reader users navigate. This is a requirement for WCAG (Web Content Accessibility Guidelines) compliance at Level A, making it essential for building inclusive web applications.*/}
+      <a href="#main-content" className="skip-link">{/* creates an anchor link that jumps to an element with id="main-content" somewhere else on the page. the browser scrolls directly to that element and moves keyboard focus there. Skip links are typically styled to be visually hidden by default, then become visible when they receive keyboard focus. This way, sighted mouse users don't see the link (since they don't need it), but keyboard users who Tab through the page will see it appear as the first focusable element.*/}
         Skip to main content
       </a>
 
-      <Header onClear={handleClear} hasResults={hasResults} />
+      <Header onClear={handleClear} hasResults={hasResults} />  {/* renders the top navigation of the Trip Recommender application. In React, components are reusable pieces of UI that can accept inputs (props). hasResults={hasResults} passes a boolean value that indicates whether the application currently has search results to display. The Header component uses this to conditionally render UI elements— a "New Search" button when there are results to clear.*/}
 
       <main 
         id="main-content" 
